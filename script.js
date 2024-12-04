@@ -2,9 +2,13 @@ const btn = document.querySelector("#buttons");
 const hiddenbox = document.querySelector("#hidden");
 const flipFrontImg = document.querySelectorAll(".flip-card-front img");
 const flipCardsBack = document.querySelectorAll(".flip-card-back");
+const decrement = document.querySelector("#decrementTime");
+const result = document.querySelector("#result");
 let dummy = [];
 let checkimage = [];
 let clickimage = 0;
+let timer = 60;
+let match = 0;
 
 
 
@@ -13,8 +17,10 @@ btn.addEventListener("click", () => {
     hiddenbox.style.display = "block"
     btn.style.display = "none"
     newfunction()
+    timing()
 
 });
+
 
 
 const array = [
@@ -27,6 +33,7 @@ const array = [
 ];
 
 let new_array = [...array, ...array];
+
 
 
 function selectimage() {
@@ -53,17 +60,14 @@ flipFrontImg.forEach((value) => {
         clickimage++
         value.parentElement.parentElement.classList.add('backside');
         checkimage.push(value.parentElement.nextElementSibling.children[0]);
-        console.log(checkimage);
 
         if (clickimage === 2) {
             if (checkimage[0].src === checkimage[1].src) {
                 checkimage.length = 0;
                 clickimage = 0;
+                match++
 
             }
-
-
-
 
             else {
 
@@ -85,3 +89,13 @@ flipFrontImg.forEach((value) => {
 
 
 
+    let a = setInterval(() => {
+        decrement.innerHTML = --timer
+
+        if (match === 6 || timer === 0) {
+            hiddenbox.style.display = "none"
+            btn.style.display = "none"
+            result.style.display = "block"
+            clearInterval(a)
+        }
+    }, 1000)

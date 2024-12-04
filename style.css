@@ -114,3 +114,19 @@ button{
 .backside {
   transform: rotateY(180deg);
 }
+#time {
+  position: absolute;
+  top: 130px;
+  left: 237px;
+  font-size: 30px;
+}
+#result{
+  display: none;
+  height: 100px;
+  width: 200px;
+  margin:  10rem auto;
+}
+#result h1{
+  color: black;
+}
+
