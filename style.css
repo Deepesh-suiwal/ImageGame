@@ -122,11 +122,11 @@ button{
 }
 #result{
   display: none;
-  height: 100px;
-  width: 200px;
+  height: 300px;
+  width: 562px;
   margin:  10rem auto;
+  text-align: center;
+  font-size: 35px;
 }
-#result h1{
-  color: black;
-}
+
 
